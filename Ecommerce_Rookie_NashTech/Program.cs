@@ -1,4 +1,5 @@
 using Data.DataAccess;
+using Ecommerce_Rookie_NashTech.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
 });
 
+builder.Services.ConfigIdentityService();
+
+builder.Services.AddBussinessService();
+
+builder.Services.AddJWTAuthentication(builder.Configuration["Jwt:Key"], builder.Configuration["Jwt:Issuer"]);
 
 var app = builder.Build();
 

@@ -73,3 +73,5 @@ D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\obj\Debug\net6.0\r
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\obj\Debug\net6.0\Ecommerce_Rookie_NashTech.pdb
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\obj\Debug\net6.0\Ecommerce_Rookie_NashTech.genruntimeconfig.cache
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\obj\Debug\net6.0\ref\Ecommerce_Rookie_NashTech.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

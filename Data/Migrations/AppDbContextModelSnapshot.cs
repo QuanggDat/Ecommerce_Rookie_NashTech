@@ -233,6 +233,9 @@ namespace Data.Migrations
                     b.Property<string>("address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("banStatus")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("dob")
                         .HasColumnType("datetime2");
 
@@ -246,6 +249,9 @@ namespace Data.Migrations
                     b.Property<string>("image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("roleId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -255,6 +261,8 @@ namespace Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("roleId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -412,6 +420,15 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Data.Entities.User", b =>
+                {
+                    b.HasOne("Data.Entities.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("roleId");
+
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Data.Entities.UserRole", b =>
