@@ -23,6 +23,8 @@ namespace Data.Entities
 
         public string? image { get; set; }
 
+        public string? description { get; set; }
+
         public DateTime createDate { get; set; }
 
         public DateTime updateDate { get; set; }

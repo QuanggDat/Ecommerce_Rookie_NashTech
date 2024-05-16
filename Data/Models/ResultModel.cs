@@ -19,7 +19,7 @@ namespace Data.Models
 
     public class PagingModel
     {
-        public object? data { get; set; }
+        public object? Data { get; set; }
         public int total { get; set; } = 0;
     }
 }

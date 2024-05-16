@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Services.Core.CategoryService;
+using Services.Core.ProductService;
 using Services.Core.UserService;
 using System.Text;
 using System.Text.Json;
@@ -27,10 +29,10 @@ namespace Ecommerce_Rookie_NashTech.Extensions
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
             });
 
-            builder.AddEntityFrameworkStores<AppDbContext>()
-                   .AddDefaultTokenProviders();
-
             builder.AddSignInManager<SignInManager<User>>();
+
+            builder.AddEntityFrameworkStores<AppDbContext>()
+                   .AddDefaultTokenProviders();            
 
             services.AddIdentity<User, Role>()
                     .AddEntityFrameworkStores<AppDbContext>()
@@ -45,6 +47,8 @@ namespace Ecommerce_Rookie_NashTech.Extensions
         public static void AddBussinessService(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         public static void AddJWTAuthentication(this IServiceCollection services, string key, string issuer)

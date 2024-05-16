@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Data.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Core.UserService;
@@ -40,6 +41,45 @@ namespace Ecommerce_Rookie_NashTech.Controllers
             return BadRequest(new ResponeResultModel {errorMessage = result.errorMessage });
         }
 
+        [HttpGet("[action]")]
+        public IActionResult GetAllCustomerslWithSearchAndPaging(string? search = null, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
+        {
+            var result = _userService.GetAllCustomerslWithSearchAndPaging(pageIndex, pageSize, search);
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(result.errorMessage);
+        }
+
+        [HttpGet("[action]/{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            var result = _userService.GetById(id);
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
+        }
+
+        [HttpPut("[action]")]
+        public IActionResult Update(UserUpdateModel model)
+        {
+            var result = _userService.Update(model);
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
+        }
+
+        [HttpPut("[action]/{id}")/*, Authorize(Roles = "Admin")*/]
+        public IActionResult BanUser(Guid id)
+        {
+            var result = _userService.BannedUser(id);
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
+        }
+
+        [HttpPut("[action]/{id}")/*, Authorize(Roles = "Admin")*/]
+        public IActionResult UnBanUser(Guid id)
+        {
+            var result = _userService.UnBannedUser(id);
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
+        }
         #region Validate
         private bool ValidateLogin(LoginModel model)
         {

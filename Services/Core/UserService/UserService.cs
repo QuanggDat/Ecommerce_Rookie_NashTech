@@ -1,6 +1,7 @@
 ﻿using Data.DataAccess;
 using Data.Entities;
 using Data.Models;
+using Data.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,7 @@ namespace Services.Core.UserService
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly RoleManager<Role> _roleManager;
+
         public UserService(AppDbContext dbContext, IConfiguration configuration, UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager)
         {
             _dbContext = dbContext;
@@ -31,6 +33,7 @@ namespace Services.Core.UserService
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
+       
 
         public async Task<ResultModel> Login(LoginModel model)
         {
@@ -166,7 +169,202 @@ namespace Services.Core.UserService
 
             return result;
         }
+        
+        public ResultModel GetAllCustomerslWithSearchAndPaging(int pageIndex, int pageSize, string? search = null)
+        {
+            ResultModel result = new ResultModel();
+            result.succeed = false;
 
+            try
+            {
+                var listCustomers = _dbContext.User.Include(r => r.Role)
+                                              .Where(x => x.Role.Name == "Customers")
+                                              .OrderBy(x => x.fullName).ToList();
+
+                if (!string.IsNullOrEmpty(search))
+                {
+                    var searchValue = FnUtil.RemoveVNAccents(search).ToUpper();
+                    listCustomers = listCustomers
+                        .Where(x =>
+                            (!string.IsNullOrWhiteSpace(x.fullName) && FnUtil.RemoveVNAccents(x.fullName).ToUpper().Contains(searchValue)) ||
+                            (!string.IsNullOrWhiteSpace(x.address) && FnUtil.RemoveVNAccents(x.address).ToUpper().Contains(searchValue)) ||
+                            (!string.IsNullOrWhiteSpace(x.Email) && FnUtil.RemoveVNAccents(x.Email).ToUpper().Contains(searchValue)) ||
+                            (!string.IsNullOrWhiteSpace(x.PhoneNumber) && FnUtil.RemoveVNAccents(x.PhoneNumber).ToUpper().Contains(searchValue)) ||
+                            x.dob.ToString().Contains(searchValue)
+                         )
+                         .ToList();
+                }
+
+                var listCustomersPaging = listCustomers.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
+                var listDisplays = new List<UserModel>();
+
+                foreach (var item in listCustomersPaging)
+                {
+                    var tmp = new UserModel
+                    {
+                        id = item.Id,                        
+                        phoneNumber = item.PhoneNumber,
+                        email = item.Email,
+                        fullName = item.fullName,
+                        address = item.address,
+                        image = item.image,
+                        gender = item.gender,
+                        dob = item.dob,
+                        banStatus = item.banStatus,
+                    };
+                    listDisplays.Add(tmp);
+                }
+
+                result.Data = new PagingModel()
+                {
+                    Data = listDisplays,
+                    total = listCustomers.Count
+                };
+
+                result.succeed = true;
+            }
+
+            catch (Exception e)
+            {
+                result.errorMessage = e.InnerException != null ? e.InnerException.Message : e.Message;
+            }
+            return result;
+        }
+
+        public ResultModel GetById(Guid id)
+        {
+            ResultModel result = new ResultModel();
+            result.succeed = false;
+
+            try
+            {
+                var checkUser = _dbContext.User.Where(s => s.Id == id).FirstOrDefault();
+
+                if (checkUser == null)
+                {
+                    result.errorMessage = "Không tìm thấy thông tin người dùng !";
+                    result.succeed = false;                   
+                }
+                else
+                {
+                    var user = new UserModel
+                    {
+                        id = checkUser.Id,
+                        phoneNumber = checkUser.PhoneNumber,
+                        email = checkUser.Email,
+                        fullName = checkUser.fullName,
+                        address = checkUser.address,
+                        image = checkUser.image,
+                        gender = checkUser.gender,
+                        dob = checkUser.dob,
+                        banStatus = checkUser.banStatus,
+                    };
+                    result.Data = user;
+                    result.succeed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+            }
+            return result;
+        }
+
+        public ResultModel Update(UserUpdateModel model)
+        {
+            ResultModel result = new ResultModel();
+            result.succeed = false;
+            try
+            {
+                var checkUser = _dbContext.User.Where(s => s.Id == model.id).FirstOrDefault();
+
+                if (checkUser == null)
+                {
+                    result.errorMessage = "Không tìm thấy thông tin người dùng !";
+                    result.succeed = false;
+                }
+                else
+                {                    
+                    checkUser.fullName = model.fullName;
+                    checkUser.address = model.address;
+                    checkUser.image = model.image;
+                    checkUser.dob = model.dob;
+                    checkUser.gender = model.gender;
+
+                    _dbContext.SaveChanges();
+
+                    result.succeed = true;
+                    result.Data = checkUser.Id;
+                }
+            }
+            catch (Exception e)
+            {
+                result.errorMessage = e.InnerException != null ? e.InnerException.Message : e.Message;
+            }
+            return result;
+        }
+
+        public ResultModel BannedUser(Guid id)
+        {
+            ResultModel result = new ResultModel();
+            try
+            {
+                var checkUser = _dbContext.User.Include(x => x.Role).Where(s => s.Id == id).FirstOrDefault();
+
+                if (checkUser == null)
+                {
+                    result.errorMessage = "Không tìm thấy thông tin người dùng !";
+                    result.succeed = false;
+                }
+                else
+                {
+                    checkUser.banStatus = true;
+
+                    _dbContext.SaveChanges();
+
+                    result.Data = checkUser.Id;
+                    result.succeed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+            }
+            return result;
+        }
+
+        public ResultModel UnBannedUser(Guid id)
+        {
+            ResultModel result = new ResultModel();
+
+            try
+            {
+                var checkUser = _dbContext.User.Where(s => s.Id == id).FirstOrDefault();
+
+                if (checkUser == null)
+                {
+                    result.errorMessage = "Không tìm thấy thông tin người dùng!";
+                    result.succeed = false;                  
+                }
+                else
+                {
+                    checkUser.banStatus = false;
+
+                    _dbContext.SaveChanges();
+
+                    result.Data = checkUser.Id;
+                    result.succeed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.errorMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+            }
+            return result;
+        }
+
+        #region Token and Claims
         private async Task<TokenModel> GetAccessToken(User user, List<string> roles)
         {
             // Get claims for the user
@@ -227,5 +425,6 @@ namespace Services.Core.UserService
 
             return claims;
         }
+        #endregion
     }
 }
