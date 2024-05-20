@@ -8,5 +8,7 @@ namespace Data.Enums
 {
     public enum EPayType
     {
+        Cash = 0,
+        Transfer = 1
     }
 }

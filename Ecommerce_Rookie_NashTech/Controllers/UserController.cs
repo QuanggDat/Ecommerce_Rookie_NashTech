@@ -42,9 +42,9 @@ namespace Ecommerce_Rookie_NashTech.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult GetAllCustomerslWithSearchAndPaging(string? search = null, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
+        public IActionResult GetAllCustomerslWithSearchAndPaging(string? searchValue = null, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
         {
-            var result = _userService.GetAllCustomerslWithSearchAndPaging(pageIndex, pageSize, search);
+            var result = _userService.GetAllCustomerslWithSearchAndPaging(pageIndex, pageSize, searchValue);
             if (result.succeed) return Ok(result.Data);
             return BadRequest(result.errorMessage);
         }

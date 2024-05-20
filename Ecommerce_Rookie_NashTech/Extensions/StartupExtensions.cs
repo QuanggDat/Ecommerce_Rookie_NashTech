@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Services.Core.CategoryService;
+using Services.Core.OrderDetailService;
+using Services.Core.OrderService;
 using Services.Core.ProductService;
 using Services.Core.UserService;
 using System.Text;
@@ -49,6 +51,8 @@ namespace Ecommerce_Rookie_NashTech.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderDetailService, OrderDetailService>();
         }
 
         public static void AddJWTAuthentication(this IServiceCollection services, string key, string issuer)

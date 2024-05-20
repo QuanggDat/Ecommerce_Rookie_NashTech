@@ -27,9 +27,9 @@ namespace Ecommerce_Rookie_NashTech.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult GetAllWithSearchAndPaging(string? search, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
+        public IActionResult GetAllWithSearchAndPaging(string? searchValue, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
         {
-            var result = _categoryService.GetAllWithSearchAndPaging(search, pageIndex, pageSize);
+            var result = _categoryService.GetAllWithSearchAndPaging(searchValue, pageIndex, pageSize);
             if (result.succeed) return Ok(result.Data);
             return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
         }

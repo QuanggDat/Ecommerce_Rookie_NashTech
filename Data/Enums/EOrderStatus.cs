@@ -8,5 +8,10 @@ namespace Data.Enums
 {
     public enum EOrderStatus
     {
+        Pending = 0,
+        Progress = 1,
+        Confirmed =2,
+        Cancel = 3,
+        Completed = 4
     }
 }

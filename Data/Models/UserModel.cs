@@ -32,7 +32,7 @@ namespace Data.Models
     public class LoginModel
     {
         public string emailOrPhoneNumber { get; set; } = null!;
-        public string password { get; set; } = null!;
+        public string password { get; set; } = null!;        
 
     }
 

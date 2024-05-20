@@ -57,7 +57,7 @@ namespace Services.Core.CategoryService
             return result;
         }
        
-        public ResultModel GetAllWithSearchAndPaging(string? search, int pageIndex, int pageSize)
+        public ResultModel GetAllWithSearchAndPaging(string? searchValue, int pageIndex, int pageSize)
         {
             ResultModel result = new ResultModel();
 
@@ -65,10 +65,10 @@ namespace Services.Core.CategoryService
             {
                 var listCategory = _dbContext.Category.Include(x => x.Products).OrderBy(x => x.name).ToList();
 
-                if (!string.IsNullOrEmpty(search))
+                if (!string.IsNullOrEmpty(searchValue))
                 {
-                    search = FnUtil.RemoveVNAccents(search).ToUpper();
-                    listCategory = listCategory.Where(x => FnUtil.RemoveVNAccents(x.name).ToUpper().Contains(search)).ToList();
+                    searchValue = FnUtil.RemoveVNAccents(searchValue).ToUpper();
+                    listCategory = listCategory.Where(x => FnUtil.RemoveVNAccents(x.name).ToUpper().Contains(searchValue)).ToList();
                 }
 
                 var listCategoryPaging = listCategory.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();

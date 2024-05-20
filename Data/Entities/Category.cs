@@ -12,15 +12,10 @@ namespace Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid id { get; set; }
-
         public string name { get; set; } = null!;
-
         public string? description { get; set; }
-
         public DateTime createDate { get; set; }
-
         public DateTime updateDate { get; set; }
-
         public virtual List<Product> Products { get; set; } = new();
     }
 }

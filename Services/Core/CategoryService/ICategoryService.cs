@@ -10,7 +10,7 @@ namespace Services.Core.CategoryService
     public interface ICategoryService
     {
         ResultModel Create(CreateCategoryModel model);
-        ResultModel GetAllWithSearchAndPaging(string? search, int pageIndex, int pageSize);
+        ResultModel GetAllWithSearchAndPaging(string? searchValue, int pageIndex, int pageSize);
         ResultModel GetById(Guid id);
         ResultModel Update(UpdateCategoryModel model);
         ResultModel Delete(Guid id);

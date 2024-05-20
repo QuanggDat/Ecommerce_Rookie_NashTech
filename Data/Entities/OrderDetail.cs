@@ -12,19 +12,12 @@ namespace Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid id { get; set; }
-
         public Guid orderId { get; set; }
-
         public virtual Order Order { get; set; } = null!;
-
         public Guid productId { get; set; }
-
-        public virtual Product Product { get; set; } = null!;   
-        
-        public string? description { get; set; }
-
+        public virtual Product Product { get; set; } = null!;
+        public double price { get; set; }
         public int quantity { get; set; }
-
-        public double totalPrice { get; set; } = 0;
+        public double totalPrice { get; set; }
     }
 }

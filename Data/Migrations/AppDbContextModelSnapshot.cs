@@ -52,18 +52,30 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("customersId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("orderDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("receiverAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("receiverFullname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("receiverPhonenumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("status")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("userId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("id");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("customersId");
 
                     b.ToTable("Order");
                 });
@@ -74,11 +86,11 @@ namespace Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("orderId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("price")
+                        .HasColumnType("float");
 
                     b.Property<Guid>("productId")
                         .HasColumnType("uniqueidentifier");
@@ -381,13 +393,13 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.Order", b =>
                 {
-                    b.HasOne("Data.Entities.User", "User")
+                    b.HasOne("Data.Entities.User", "Customers")
                         .WithMany()
-                        .HasForeignKey("userId")
+                        .HasForeignKey("customersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Customers");
                 });
 
             modelBuilder.Entity("Data.Entities.OrderDetail", b =>

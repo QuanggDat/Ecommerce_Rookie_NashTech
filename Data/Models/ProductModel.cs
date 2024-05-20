@@ -11,6 +11,7 @@ namespace Data.Models
     {
         public Guid id { get; set; }
         public string name { get; set; } = null!;
+        public Guid categoryId { get; set; }
         public string categoryName { get; set; } = null!;
         public double price { get; set; }
         public string? image { get; set; }
@@ -28,6 +29,7 @@ namespace Data.Models
     }
     public class UpdateProductModel
     {
+        public Guid id { get; set; }
         public string name { get; set; } = null!;
         public Guid categoryId { get; set; }
         public double price { get; set; }

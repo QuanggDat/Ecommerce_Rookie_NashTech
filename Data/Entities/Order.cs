@@ -12,16 +12,14 @@ namespace Data.Entities
     public class Order
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid id { get; set; }  
-
+        public Guid id { get; set; }   
+        public Guid customersId { get; set; }
+        public virtual User Customers { get; set; } = null!;
         public DateTime orderDate { get; set; }
-
-        public Guid userId { get; set; }
-
-        public virtual User User { get; set; } = null!;
-
+        public string receiverFullname { get; set; } = null!;
+        public string receiverPhonenumber { get; set; } = null!;
+        public string receiverAddress { get; set; } = null!;
         public EOrderStatus status { get; set; }
-
         public virtual List<OrderDetail> OrderDetails { get; set; } = new();
     }
 }

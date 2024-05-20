@@ -170,7 +170,7 @@ namespace Services.Core.UserService
             return result;
         }
         
-        public ResultModel GetAllCustomerslWithSearchAndPaging(int pageIndex, int pageSize, string? search = null)
+        public ResultModel GetAllCustomerslWithSearchAndPaging(int pageIndex, int pageSize, string? searchValue = null)
         {
             ResultModel result = new ResultModel();
             result.succeed = false;
@@ -181,9 +181,10 @@ namespace Services.Core.UserService
                                               .Where(x => x.Role.Name == "Customers")
                                               .OrderBy(x => x.fullName).ToList();
 
-                if (!string.IsNullOrEmpty(search))
+                if (!string.IsNullOrEmpty(searchValue))
                 {
-                    var searchValue = FnUtil.RemoveVNAccents(search).ToUpper();
+                    searchValue = FnUtil.RemoveVNAccents(searchValue).ToUpper();
+
                     listCustomers = listCustomers
                         .Where(x =>
                             (!string.IsNullOrWhiteSpace(x.fullName) && FnUtil.RemoveVNAccents(x.fullName).ToUpper().Contains(searchValue)) ||
