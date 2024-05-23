@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "U6ATCugJZoDi3sT1xKzo4B+VfS5Y5/069RYQQT+er0E=",
-  "Source": "Ecommerce_Rookie_NashTech",
-  "BasePath": "_content/Ecommerce_Rookie_NashTech",
+  "Hash": "FznQuPkn0k3pk+qJ1zD0fCxvhX7UEt6W4JZVZAkqKgI=",
+  "Source": "Ecommerce_Rookie_NashTech_Backend",
+  "BasePath": "_content/Ecommerce_Rookie_NashTech_Backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

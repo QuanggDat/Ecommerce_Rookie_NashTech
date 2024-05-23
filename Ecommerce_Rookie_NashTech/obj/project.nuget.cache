@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jkhAMgZgV3ZbHhHP9Y96EZqMVqvAo8qWwzgFnHiKmUFTrLk6LU7MdZCFHyD+mkFU+5mJUanrn5Qq0hNgYfRQrw==",
+  "dgSpecHash": "tXMsmKUghEOy83Zn/Nt4ki5VWYAD3w7OBINrDLyWIs7Ub7aFtclbJyNZrlyMvFfTCzxOgethlqG5r1RBAAZ4SA==",
   "success": true,
-  "projectFilePath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech.csproj",
+  "projectFilePath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\84945\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\84945\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

@@ -3292,9 +3292,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech.csproj",
-      "projectName": "Ecommerce_Rookie_NashTech",
-      "projectPath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech.csproj",
+      "projectUniqueName": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_Backend.csproj",
+      "projectName": "Ecommerce_Rookie_NashTech_Backend",
+      "projectPath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_Backend.csproj",
       "packagesPath": "C:\\Users\\84945\\.nuget\\packages\\",
       "outputPath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech\\obj\\",
       "projectStyle": "PackageReference",
