@@ -1,7 +1,11 @@
+using Ecommerce_Rookie_NashTech_CustomerFrontend.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddBussinessService();
 
 var app = builder.Build();
 

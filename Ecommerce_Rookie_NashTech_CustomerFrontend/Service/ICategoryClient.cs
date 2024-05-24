@@ -1,6 +1,9 @@
-﻿namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Service
+﻿using ViewModels;
+
+namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Service
 {
-    public class ICategoryClient
+    public interface ICategoryClient
     {
+        Task<ICollection<CategoryViewModel>> GetAll();
     }
 }

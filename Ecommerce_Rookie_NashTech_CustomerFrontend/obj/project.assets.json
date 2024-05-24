@@ -2989,6 +2989,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ViewModels.dll": {}
+        }
       }
     }
   },
@@ -9258,11 +9268,17 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../ViewModels/ViewModels.csproj",
+      "msbuildProject": "../ViewModels/ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
+      "ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9291,7 +9307,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Rookie\\Ecommerce_Rookie_NashTech\\ViewModels\\ViewModels.csproj": {
+              "projectPath": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\ViewModels\\ViewModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

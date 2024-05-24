@@ -34,6 +34,14 @@ namespace Ecommerce_Rookie_NashTech.Controllers
             return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
         }
 
+        [HttpGet("[action]")]
+        public IActionResult GetAll()
+        {
+            var result = _categoryService.GetAll();
+            if (result.succeed) return Ok(result.Data);
+            return BadRequest(new ResponeResultModel { errorMessage = result.errorMessage });
+        }
+
         [HttpGet("[action]/{id}")]
         public IActionResult GetById(Guid id)
         {

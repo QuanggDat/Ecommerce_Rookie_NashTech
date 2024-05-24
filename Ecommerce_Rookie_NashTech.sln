@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{A9DA1A84-72E0-4ED1-A8AF-F032F49AF5EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce_Rookie_NashTech_CustomerFrontend", "Ecommerce_Rookie_NashTech_CustomerFrontend\Ecommerce_Rookie_NashTech_CustomerFrontend.csproj", "{6966D369-1D3A-40F0-9B14-10FA7F238BAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce_Rookie_NashTech_CustomerFrontend", "Ecommerce_Rookie_NashTech_CustomerFrontend\Ecommerce_Rookie_NashTech_CustomerFrontend.csproj", "{6966D369-1D3A-40F0-9B14-10FA7F238BAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{5388BBCB-DCCC-451F-AF0C-C89A386EF93D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6966D369-1D3A-40F0-9B14-10FA7F238BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6966D369-1D3A-40F0-9B14-10FA7F238BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6966D369-1D3A-40F0-9B14-10FA7F238BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5388BBCB-DCCC-451F-AF0C-C89A386EF93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5388BBCB-DCCC-451F-AF0C-C89A386EF93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5388BBCB-DCCC-451F-AF0C-C89A386EF93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5388BBCB-DCCC-451F-AF0C-C89A386EF93D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

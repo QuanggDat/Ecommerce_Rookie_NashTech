@@ -104,6 +104,45 @@ namespace Services.Core.CategoryService
             return result;
         }
 
+        public ResultModel GetAll()
+        {
+            ResultModel result = new ResultModel();
+
+            try
+            {
+                var listCategory = _dbContext.Category.Include(x => x.Products).OrderBy(x => x.name).ToList();
+
+                var listDisplays = new List<CategoryModel>();
+
+                foreach (var category in listCategory)
+                {
+                    var tmp = new CategoryModel
+                    {
+                        id = category.id,
+                        name = category.name,
+                        description = category.description,
+                        createDate = category.createDate,
+                        updateDate = category.updateDate,
+                        quantityProduct = category.Products.Count,
+                    };
+                    listDisplays.Add(tmp);
+                }
+
+                result.Data = new PagingModel()
+                {
+                    Data = listDisplays,
+                    total = listCategory.Count
+                };
+                result.succeed = true;
+
+            }
+            catch (Exception e)
+            {
+                result.errorMessage = e.InnerException != null ? e.InnerException.Message : e.Message;
+            }
+            return result;
+        }
+
         public ResultModel GetById(Guid id)
         {
             ResultModel result = new ResultModel();

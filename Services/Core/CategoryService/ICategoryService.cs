@@ -11,6 +11,7 @@ namespace Services.Core.CategoryService
     {
         ResultModel Create(CreateCategoryModel model);
         ResultModel GetAllWithSearchAndPaging(string? searchValue, int pageIndex, int pageSize);
+        ResultModel GetAll();
         ResultModel GetById(Guid id);
         ResultModel Update(UpdateCategoryModel model);
         ResultModel Delete(Guid id);

@@ -218,3 +218,5 @@ D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\b
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\obj\Debug\net6.0\Ecommerce_Rookie_NashTech_CustomerFrontend.csproj.CopyComplete
+D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\bin\Debug\net6.0\ViewModels.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\Ecommerce_Rookie_NashTech_CustomerFrontend\bin\Debug\net6.0\ViewModels.pdb

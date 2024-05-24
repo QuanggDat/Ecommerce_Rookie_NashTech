@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Ecommerce_Rookie_NashTech_CustomerFrontend/1.0.0": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
+          "ViewModels": "1.0.0"
         },
         "runtime": {
           "Ecommerce_Rookie_NashTech_CustomerFrontend.dll": {}
@@ -2186,6 +2187,11 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "ViewModels/1.0.0": {
+        "runtime": {
+          "ViewModels.dll": {}
+        }
       }
     }
   },
@@ -3517,6 +3523,11 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

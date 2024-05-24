@@ -1,0 +1,12 @@
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\bin\Debug\net6.0\ViewModels.deps.json
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\bin\Debug\net6.0\ViewModels.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\bin\Debug\net6.0\ViewModels.pdb
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.csproj.AssemblyReference.cache
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.AssemblyInfoInputs.cache
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.AssemblyInfo.cs
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.csproj.CoreCompileInputs.cache
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\refint\ViewModels.dll
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ViewModels.pdb
+D:\Rookie\Ecommerce_Rookie_NashTech\ViewModels\obj\Debug\net6.0\ref\ViewModels.dll
