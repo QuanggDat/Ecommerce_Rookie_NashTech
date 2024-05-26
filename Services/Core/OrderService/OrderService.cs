@@ -118,6 +118,7 @@ namespace Services.Core.OrderService
                         {
                             productId = x.id,
                             productName = x.Product.name,
+                            imange = x.Product.image,
                             quantity = x.quantity,
                             price = x.price,
                             totalPrice = x.totalPrice,
@@ -171,6 +172,7 @@ namespace Services.Core.OrderService
                         {
                             productId = x.id,
                             productName = x.Product.name,
+                            imange = x.Product.image,
                             quantity = x.quantity,
                             price = x.price,
                             totalPrice = x.totalPrice,

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ViewModels.ProductViewModel>
+
+<h3> <b>@Model.Count()</b> product.</h3>
+@foreach (var item in Model)
+{
+	<div class="col-md-6 col-lg-6 col-xl-4">
+		<div class="rounded position-relative fruite-item">
+			<div class="fruite-img">
+				<a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.id">
+					<img src="~/Image/Product/@item.image" class="img-fluid w-100 rounded-top" alt="@item.name">
+				</a>
+			</div>
+			<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.categoryName</div>
+			<div class="p-4 border border-secondary border-top-0 rounded-bottom">
+				<a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.id"><h4>@item.name</h4></a>
+				<p>@item.description</p>
+				<div class="d-flex justify-content-between flex-lg-wrap">
+					<p class="text-dark fs-5 fw-bold mb-0">$@item.price</p>
+					<a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.id" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add To Cart</a>
+				</div>
+			</div>
+		</div>
+	</div>
+}

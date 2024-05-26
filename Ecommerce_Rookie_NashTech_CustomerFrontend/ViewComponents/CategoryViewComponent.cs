@@ -1,4 +1,4 @@
-﻿using Ecommerce_Rookie_NashTech_CustomerFrontend.Service;
+﻿using Ecommerce_Rookie_NashTech_CustomerFrontend.Service.CategoryService;
 using Microsoft.AspNetCore.Mvc;
 using ViewModels;
 
@@ -12,15 +12,10 @@ namespace Ecommerce_Rookie_NashTech_CustomerFrontend.ViewComponents
         {
             _categoryClient = categoryClient;
         }
-        private async Task<IEnumerable<CategoryViewModel?>> GetAllCategory()
-        {
-            return await _categoryClient.GetAll();
-        }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categorys = await GetAllCategory();
-            return View(categorys);
+            return View(await _categoryClient.GetAll());
         }        
     }
 }

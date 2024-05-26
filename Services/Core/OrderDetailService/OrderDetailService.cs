@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Data.Utils;
 
 namespace Services.Core.OrderDetailService
 {
@@ -48,6 +49,7 @@ namespace Services.Core.OrderDetailService
                         {
                             productId = orderDetail.id,
                             productName = orderDetail.Product.name,
+                            imange = orderDetail.Product.image,
                             quantity = orderDetail.quantity,
                             price = orderDetail.price,
                             totalPrice = orderDetail.totalPrice,
@@ -68,6 +70,6 @@ namespace Services.Core.OrderDetailService
                 }
             }
             return result;
-        }
+        }      
     }
 }

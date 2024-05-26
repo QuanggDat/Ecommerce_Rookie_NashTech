@@ -11,4 +11,8 @@ namespace Data.Utils
         public const int Index = 1;
         public const int Size = 10;
     }
+    public class ConstCart
+    {
+        public static string CART_KEY = "MYCART";
+    }
 }

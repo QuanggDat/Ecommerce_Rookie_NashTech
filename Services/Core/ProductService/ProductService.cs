@@ -164,13 +164,13 @@ namespace Services.Core.ProductService
             return result;
         }
 
-        public ResultModel GetByCategoryId(Guid categoryId, string? searchValue, int pageIndex, int pageSize)
+        public ResultModel GetByCategoryId(Guid? categoryId, string? searchValue, int pageIndex, int pageSize)
         {
             ResultModel result = new ResultModel();
 
             var checkCategory = _dbContext.Category.Where(x => x.id == categoryId).FirstOrDefault();
 
-            if (checkCategory == null)
+            if (categoryId != null && checkCategory == null)
             {
                 result.succeed = false;
                 result.errorMessage = "Không tìm thấy thông tin loại sản phẩm!";
@@ -179,8 +179,14 @@ namespace Services.Core.ProductService
             {
                 try
                 {
-                    var listProduct = _dbContext.Product.Where(x => x.categoryId == categoryId).OrderBy(x => x.name).ToList();
 
+                    var listProduct = _dbContext.Product.Include(x => x.Category).OrderBy(x => x.name).ToList();
+
+                    if (categoryId != null)
+                    {
+                        listProduct = _dbContext.Product.Where(x => x.categoryId == categoryId).OrderBy(x => x.name).ToList();
+                    }
+                                  
                     if (!string.IsNullOrEmpty(searchValue))
                     {
                         searchValue = FnUtil.RemoveVNAccents(searchValue).ToUpper();

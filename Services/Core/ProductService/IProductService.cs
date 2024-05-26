@@ -11,7 +11,7 @@ namespace Services.Core.ProductService
     {
         ResultModel Create(CreateProductModel model);
         ResultModel GetAllWithSearchAndPaging(string? searchValue, int pageIndex, int pageSize);
-        ResultModel GetByCategoryId(Guid categoryId, string? searchValue, int pageIndex, int pageSize);
+        ResultModel GetByCategoryId(Guid? categoryId, string? searchValue, int pageIndex, int pageSize);
         ResultModel GetById(Guid id);
         ResultModel Update(UpdateProductModel model);
         ResultModel Delete(Guid id);       

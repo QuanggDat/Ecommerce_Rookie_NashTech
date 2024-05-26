@@ -10,6 +10,7 @@ namespace Data.Models
     {
         public Guid productId { get; set; }
         public string productName { get; set; } = null!;
+        public string? imange { get; set; } 
         public double price { get; set; }
         public int quantity { get; set; }
         public double totalPrice { get; set; }

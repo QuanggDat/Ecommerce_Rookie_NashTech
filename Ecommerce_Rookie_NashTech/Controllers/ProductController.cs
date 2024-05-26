@@ -38,7 +38,7 @@ namespace Ecommerce_Rookie_NashTech.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult GetByCategoryId(Guid categoryId, string? searchValue, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
+        public IActionResult GetByCategoryId(Guid? categoryId, string? searchValue, int pageIndex = ConstPaging.Index, int pageSize = ConstPaging.Size)
         {
             var result = _productService.GetByCategoryId(categoryId, searchValue, pageIndex, pageSize);
             if (result.succeed) return Ok(result.Data);

@@ -15,7 +15,8 @@ namespace ViewModels
         public DateTime createDate { get; set; }
         public DateTime updateDate { get; set; }
     }
-    public class RootObject
+
+    public class RootCategory
     {
         public List<CategoryViewModel> data { get; set; }
         public int total { get; set; }
