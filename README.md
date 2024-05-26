@@ -24,8 +24,8 @@
 *	Manage products (Name, Category, Description, Price, Images, CreatedDate, UpdatedDate)
 *	View customers
 
-## Recommended architecture
-![image](https://github.com/QuanggDat/Ecommerce_Rookie_NashTech/assets/108293525/fd52168b-8ef6-4a3a-b9cc-5fdd2ffc80c7)
+## Recommended Architecture
+![image](https://github.com/QuanggDat/Ecommerce_Rookie_NashTech/assets/108293525/3ccbf8e7-3b2c-4ced-b0ea-1230fe3a1300)
 
 ## Database Diagram
 ![image](https://github.com/QuanggDat/Ecommerce_Rookie_NashTech/assets/108293525/f0a22674-9de3-48fb-b37c-b5b810eff170)
