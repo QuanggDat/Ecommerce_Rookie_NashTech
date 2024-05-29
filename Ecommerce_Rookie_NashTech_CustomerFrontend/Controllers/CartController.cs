@@ -65,5 +65,18 @@ namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Controllers
 			}
 			return RedirectToAction("Index");
 		}
+		public IActionResult UpdateQuantityCart(Guid id, int quantity)
+		{
+			var listCart = carts;
+
+			var item = listCart.SingleOrDefault(p => p.productId == id);
+			if (item != null)
+			{
+				item.quantity = quantity;
+				item.totalPrice = item.quantity * item.price;
+				HttpContext.Session.Set(Setting.CART_KEY, listCart);
+			}
+			return RedirectToAction("Index");
+		}
 	}
 }

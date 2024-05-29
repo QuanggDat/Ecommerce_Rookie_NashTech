@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PEDoBCUXdvTcwyg2lnKTLwreTc+W/b6UjHhWuM6aSlw=",
+  "Hash": "5JseTqtWsxVJz+loYKZDm9HkvRb9p9X2QXK/6qSyd/I=",
   "Source": "Ecommerce_Rookie_NashTech_CustomerFrontend",
   "BasePath": "_content/Ecommerce_Rookie_NashTech_CustomerFrontend",
   "Mode": "Default",
@@ -542,6 +542,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\Customer\\Author.jpg"
+    },
+    {
+      "Identity": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_CustomerFrontend\\wwwroot\\Image\\Customer\\BWM Diagrams-Use Case Diagram.drawio.png",
+      "SourceId": "Ecommerce_Rookie_NashTech_CustomerFrontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_CustomerFrontend\\wwwroot\\",
+      "BasePath": "_content/Ecommerce_Rookie_NashTech_CustomerFrontend",
+      "RelativePath": "Image/Customer/BWM Diagrams-Use Case Diagram.drawio.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\Customer\\BWM Diagrams-Use Case Diagram.drawio.png"
     },
     {
       "Identity": "D:\\Rookie\\Ecommerce_Rookie_NashTech\\Ecommerce_Rookie_NashTech_CustomerFrontend\\wwwroot\\Image\\Customer\\man.jpg",

@@ -1,5 +1,6 @@
 ﻿using Ecommerce_Rookie_NashTech_CustomerFrontend.Service.CategoryService;
 using Ecommerce_Rookie_NashTech_CustomerFrontend.Service.ProductService;
+using Ecommerce_Rookie_NashTech_CustomerFrontend.Service.UserService;
 
 namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Extensions
 {
@@ -9,6 +10,7 @@ namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Extensions
         {
             services.AddHttpClient<ICategoryClient, CategoryClient>();
             services.AddHttpClient<IProductClient, ProductClient>();
+            services.AddHttpClient<IUserClient, UserClient>();
         }
     }
 }

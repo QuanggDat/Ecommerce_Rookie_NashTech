@@ -10,7 +10,7 @@ namespace Services.Core.UserService
     public interface IUserService
     {
         Task<ResultModel> Login(LoginModel model);
-        Task<ResultModel> RegisterCustomers(CustomersRegisterModel model);
+        Task<ResultModel> RegisterCustomer(CustomerRegisterModel model);
         ResultModel GetAllCustomerslWithSearchAndPaging(int pageIndex, int pageSize, string? searchValue = null);
         ResultModel GetById(Guid id);
         ResultModel Update(UserUpdateModel model);

@@ -90,7 +90,7 @@ namespace Services.Core.UserService
             return result;
         }
 
-        public async Task<ResultModel> RegisterCustomers(CustomersRegisterModel model)
+        public async Task<ResultModel> RegisterCustomer(CustomerRegisterModel model)
         {
             var result = new ResultModel { succeed = false };
 
@@ -112,7 +112,11 @@ namespace Services.Core.UserService
                     fullName = model.fullName,
                     NormalizedEmail = model.email,
                     UserName = model.email,
-                    roleId = role.Id
+                    roleId = role.Id,
+                    image = model.image,
+                    address =  model.address,
+                    dob = model.dob,
+                    gender = model.gender,                   
                 };
 
                 // Check if phone number is already registered

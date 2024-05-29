@@ -21,12 +21,16 @@ namespace Data.Models
         public bool banStatus { get; set; }
     }
 
-    public class CustomersRegisterModel
+    public class CustomerRegisterModel
     {
         public string email { get; set; } = null!;
         public string phoneNumber { get; set; } = null!;
         public string password { get; set; } = null!;
         public string fullName { get; set; } = null!;
+        public string? address { get; set; }
+        public string? image { get; set; }
+        public DateTime dob { get; set; }
+        public EGender gender { get; set; }
     }
 
     public class LoginModel
@@ -44,7 +48,5 @@ namespace Data.Models
         public string? image { get; set; }
         public DateTime dob { get; set; }
         public EGender gender { get; set; }
-    }
-
-    
+    }   
 }

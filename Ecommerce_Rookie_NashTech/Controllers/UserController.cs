@@ -18,13 +18,13 @@ namespace Ecommerce_Rookie_NashTech.Controllers
         }
 
         [HttpPost("[action]")/*, Authorize(Roles = "Customers")*/]
-        public async Task<ActionResult> RegisterCustomers([FromBody] CustomersRegisterModel model)
+        public async Task<ActionResult> RegisterCustomer([FromBody] CustomerRegisterModel model)
         {
             if (!ValidateRegisterCustomers(model))
             {
                 return BadRequest(ModelState);
             }
-            var result = await _userService.RegisterCustomers(model);
+            var result = await _userService.RegisterCustomer(model);
             if (result.succeed) return Ok(result.Data);
             return BadRequest(new ResponeResultModel {errorMessage = result.errorMessage });
         }
@@ -98,7 +98,7 @@ namespace Ecommerce_Rookie_NashTech.Controllers
             return true;
         }
 
-        private bool ValidateRegisterCustomers(CustomersRegisterModel model)
+        private bool ValidateRegisterCustomers(CustomerRegisterModel model)
         {
             if (string.IsNullOrWhiteSpace(model.email))
             {
