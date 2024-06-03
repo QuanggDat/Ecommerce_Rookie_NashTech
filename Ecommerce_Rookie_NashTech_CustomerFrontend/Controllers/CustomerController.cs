@@ -21,26 +21,63 @@ namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Controllers
 			return View();
 		}
 
-		[HttpPost]
-		public IActionResult RegisterCustomer(CustomersRegisterViewModel customersRegisterViewModel,IFormFile image)
+        [HttpPost]
+        public async Task<IActionResult> RegisterCustomer(CustomersRegisterViewModel customersRegisterViewModel, IFormFile? image)
         {
-			if (ModelState.IsValid)
-			{
-				if (image != null)
-				{
-					customersRegisterViewModel.image = Util.UploadImage(image, "Customer");
-				}
+            if (ModelState.IsValid)
+            {
+                if (image != null)
+                {
+                    customersRegisterViewModel.image = Util.UploadImage(image, "Customer");
+                }
 
-				_userClient.CustomersRegister(customersRegisterViewModel);
-				return RedirectToAction("Index", "Home");
-			}				
-			return View();
-		}
+                var (isSuccess, errorMessage) = await _userClient.CustomersRegister(customersRegisterViewModel);
 
-		[HttpGet]
+                if (isSuccess)
+                {
+                    return RedirectToAction("Login", "Customer"); 
+                }
+                else
+                {
+                    ModelState.AddModelError("", errorMessage);
+                }
+            }
+
+            return View(customersRegisterViewModel);
+        }
+
+        [HttpGet]
 		public IActionResult Login(string? returnUrl)
 		{
 			ViewBag.ReturnUrl = returnUrl;
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Login (LoginViewModel model, string? returnUrl)
+		{
+			ViewBag.ReturnUrl = returnUrl;
+
+			if (ModelState.IsValid)
+			{
+				var (isSuccess, errorMessage) = await _userClient.Login(model);
+
+				if (Url.IsLocalUrl(returnUrl))
+				{
+					if (isSuccess)
+					{
+						return Redirect(returnUrl);
+					}
+					else
+					{
+						ModelState.AddModelError("", errorMessage);
+					}
+				}
+				else
+				{
+					return RedirectToAction("Index", "Home");
+				}
+			}
 			return View();
 		}
 
@@ -50,6 +87,5 @@ namespace Ecommerce_Rookie_NashTech_CustomerFrontend.Controllers
 			return View();
 
 		}
-
 	}
 }

@@ -6,48 +6,60 @@
 <div class="container-fluid py-5">
 	<div class="container py-5">
 		<h1 class="mb-4 text-center">Register New Customer</h1>
-		<form asp-action="RegisterCustomer" enctype="multipart/form-data">
+		<form asp-controller="Customer" asp-action="RegisterCustomer" method="post" enctype="multipart/form-data">
 			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- Hiển thị thông báo lỗi -->
+					@if (!ViewData.ModelState.IsValid)
+					{
+						<div class="alert alert-danger">
+							@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+						</div>
+					}
+				</div>
+
+				<div class="col-md-12">
+				</div>
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label class="form-label" for="phoneNumber">Phone Number<sup>*</sup></label>
-						<input asp-for="@Model.phoneNumber" class="form-control" />
-						<span asp-validation-for="@Model.phoneNumber" class="text-danger"></span>
+						<input asp-for="phoneNumber" class="form-control" />
+						<span asp-validation-for="phoneNumber" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label class="form-label" for="password">Password<sup>*</sup></label>
-						<input asp-for="@Model.password" class="form-control" />
-						<span asp-validation-for="@Model.password" class="text-danger"></span>
+						<input asp-for="password" class="form-control" />
+						<span asp-validation-for="password" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label class="form-label" for="email">Email<sup>*</sup></label>
-						<input asp-for="@Model.email" class="form-control" />
-						<span asp-validation-for="@Model.email" class="text-danger"></span>
+						<input asp-for="email" class="form-control" />
+						<span asp-validation-for="email" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label class="form-label" for="fullName">Full Name<sup>*</sup></label>
-						<input asp-for="@Model.fullName" class="form-control" />
-						<span asp-validation-for="@Model.fullName" class="text-danger"></span>
+						<input asp-for="fullName" class="form-control" />
+						<span asp-validation-for="fullName" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label for="gender">Gender</label>
-						<select asp-for="@Model.gender" class="form-control" style="margin-top: 9px;">
-							<!-- Added margin-top -->
+						<select asp-for="gender" class="form-control" style="margin-top: 9px;">
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
-							<option value="Other">Other</option>
 							<option value="Other">Other</option>
 						</select>
 					</div>
@@ -56,22 +68,22 @@
 				<div class="col-md-6">
 					<div class="form-group my-3">
 						<label class="form-label" for="dob">Date Of Birth<sup>*</sup></label>
-						<input asp-for="@Model.dob" class="form-control" />
-						<span asp-validation-for="@Model.dob" class="text-danger"></span>
+						<input asp-for="dob" class="form-control" />
+						<span asp-validation-for="dob" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-12">
 					<div class="form-group my-3">
-						<label class="form-label" for="address">Address<sup></sup></label>
-						<input asp-for="@Model.address" class="form-control" />
-						<span asp-validation-for="@Model.address" class="text-danger"></span>
+						<label class="form-label" for="address">Address</label>
+						<input asp-for="address" class="form-control" />
+						<span asp-validation-for="address" class="text-danger"></span>
 					</div>
 				</div>
 
 				<div class="col-md-12">
 					<div class="form-group my-3">
-						<label class="form-label" for="image">Image<sup></sup></label>
+						<label class="form-label" for="image">Image</label>
 						<input type="file" name="image" class="form-control" />
 					</div>
 				</div>
