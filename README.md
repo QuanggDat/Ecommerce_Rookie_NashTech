@@ -30,6 +30,5 @@
 ## Database Diagram
 ![image](https://github.com/QuanggDat/Ecommerce_Rookie_NashTech/assets/108293525/9da7d518-b712-4fcf-91f6-494e77c0842f)
 
-© Link Demo : https://drive.google.com/drive/u/0/folders/1UY6R7t0wT49D81SMZy8A3DX7DcBoGOuR	
 
 
